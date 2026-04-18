@@ -70,12 +70,3 @@ document.getElementById('volumeInput').addEventListener('keypress', function (e)
         }, 100);
     }
 });
-
-const swiper = new Swiper('.swiper', {
-    direction: 'vertical',
-    autoHeight: true, // Adicione isto: ajusta a altura conforme o conteúdo
-    slidesPerView: 1,
-    mousewheel: true,
-    parallax: true,
-    speed: 800,
-});

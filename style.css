@@ -16,7 +16,6 @@ body, html {
 /* Camada de Textura de Ruído */
 body::before {
     content: "";
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -30,16 +29,15 @@ body::before {
 
 .swiper {
     width: 100%;
-    height: 100vh; /* Isso garante que ocupe a tela toda */
+    height: 100vh; /* Garante que cada slide ocupe a tela inteira */
 }
 
-/* Garante que o slide da calculadora centralize tudo verticalmente */
+/*Fixar as posições dos slides (exceto o principal)*/
 .swiper-slide {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
     height: 100%; /* Essencial para o alinhamento */
 }
 
@@ -50,7 +48,7 @@ body::before {
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 24px;
-    padding: 20px; /* Reduzi de 30px para 20px */
+    padding: 30px;
     width: 100%;
     max-width: 360px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
@@ -136,7 +134,6 @@ h1 span { color: var(--accent); }
 /* Container da Tabela com efeito de vidro */
 .table-container {
     width: 100%;
-    max-width: 400px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -148,7 +145,6 @@ h1 span { color: var(--accent); }
 
 table {
     width: 100%;
-    border-collapse: collapse;
     font-size: 0.95rem;
 }
 
@@ -191,7 +187,7 @@ tbody tr:active {
 /* Container do Indicador de Deslize */
 .scroll-hint {
     position: absolute;
-    bottom: 70px; /* Fixa a 30px do fundo do slide */
+    bottom: 30px; /* Fixa a 30px do fundo do slide */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -227,14 +223,13 @@ tbody tr:active {
 /* Container da Grade de Contatos */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Uma coluna para mobile */;
+    grid-template-columns: 1fr 1fr; 
     gap: 12px; /* Reduzi o espaço entre eles */
     width: 80%;
     padding: 10px;
 }
 
 .contact-card {
-    padding: 15px 10px; /* Mais compacto */
     border-radius: 10px;
 }
 
@@ -245,7 +240,7 @@ tbody tr:active {
 }
 
 .contact-label {
-    font-size: 0.75rem; /* Fonte um pouco menor para não quebrar linha */
+    font-size: 1rem; /* Fonte um pouco menor para não quebrar linha */
 }
 
 /* Container da Calculadora */
