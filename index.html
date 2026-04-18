@@ -15,7 +15,7 @@
         <div class="swiper-wrapper">
 
             <div class="swiper-slide bg-capa">
-                <div class="content">
+                <div class="content" style="text-align: center;">
                     <span class="badge">Cuiabá - MT | SE 16</span>
                     <h1>FOCO<br><span>TOTAL</span><br>NO CAMPO</h1>
                     <div class="icon-main">🦟</div>
@@ -45,17 +45,24 @@
             </div>
 
             <div class="swiper-slide">
-                <h2>Dose Exata</h2>
-                <div class="card" style="background: white; color: black;">
-                    <label style="font-weight: bold; font-size: 0.8rem;">VOLUME DO DEPÓSITO (L)</label>
-                    <input type="number" id="volumeInput" placeholder="0"
-                        style="width: 100%; border: none; font-size: 3rem; font-weight: 900; text-align: center; outline: none;">
-                    <div style="height: 2px; background: #eee; margin: 20px 0;"></div>
-                    <div class="result" style="font-size: 1.2rem;">
-                        USAR <span id="doseResult" style="font-size: 2.5rem; color: var(--primary);">0</span> COLHERES
+                <div class="calc-container card">
+                    <label
+                        style="color: var(--accent); letter-spacing: 2px; font-weight: bold; font-size: 0.8rem;">VOLUME
+                        (LITROS)</label>
+
+                    <input type="number" id="volumeInput" class="calc-input" placeholder="0" min="0" max="1000"
+                        oninput="calcularDose()" enterkeyhint="done">
+                    <div class="result-display">
+                        <span id="doseResult" class="result-value">0</span>
+                        <span class="result-label">Gramas / Colheres</span>
                     </div>
+
+                    <p style="font-size: 0.6rem; opacity: 0.4; margin-top: 20px;">
+                        Dose oficial: 0,8g para cada 100L
+                    </p>
                 </div>
             </div>
+
             <div class="swiper-slide">
                 <h2 style="margin-bottom: 20px;">Reunião Semanal <br><small style="color: var(--accent);">SE 16 | 20 de
                         Abril</small></h2>
@@ -94,13 +101,37 @@
                 </p>
             </div>
             <div class="swiper-slide">
-                <h2>Contatos Úteis</h2>
-                <div class="phone-ui">
-                    <a href="tel:08006466115" class="contact-btn"><span>💧 Água Cuiabá</span></a>
-                    <a href="tel:6536455500" class="contact-btn"><span>♻️ Limpurb</span></a>
-                    <a href="tel:6533186059" class="contact-btn"><span>🐾 Zoonoses (CCZ)</span></a>
-                    <a href="tel:6536169614" class="contact-btn"><span>🏗️ Ordem Pública</span></a>
+                <h2 style="margin-bottom: 20px; font-weight: 900; line-height: 1;">LINHAS<br>
+                    <span style="color: var(--accent);">DIRETAS</span>
+                </h2>
+
+                <div class="contact-grid">
+                    <a href="tel:08006466115" class="contact-card">
+                        <div class="contact-icon-circle bg-agua">💧</div>
+                        <span class="contact-label">Água Cuiabá</span>
+                        <span class="contact-sub">Vazamentos</span>
+                    </a>
+
+                    <a href="tel:6536455500" class="contact-card">
+                        <div class="contact-icon-circle bg-limp">♻️</div>
+                        <span class="contact-label">Limpurb</span>
+                        <span class="contact-sub">Entulhos</span>
+                    </a>
+
+                    <a href="tel:6533186059" class="contact-card">
+                        <div class="contact-icon-circle bg-zoo">🐾</div>
+                        <span class="contact-label">Zoonoses</span>
+                        <span class="contact-sub">Animais/Vetor</span>
+                    </a>
+
+                    <a href="tel:6536169614" class="contact-card">
+                        <div class="contact-icon-circle bg-ordem">🏗️</div>
+                        <span class="contact-label">O. Pública</span>
+                        <span class="contact-sub">Terrenos</span>
+                    </a>
                 </div>
+
+                <p style="margin-top: 20px; font-size: 0.6rem; opacity: 0.5;">Toque para ligar agora.</p>
             </div>
 
         </div>

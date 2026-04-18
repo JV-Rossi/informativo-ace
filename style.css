@@ -13,32 +13,49 @@ body, html {
     background: #000; color: white;
 }
 
+/* Camada de Textura de Ruído */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gerador de ruído via SVG */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.05; /* Ajuste aqui: 0.05 é sutil, 0.10 é bem visível */
+    pointer-events: none; /* Garante que você consiga clicar nos botões por baixo dela */
+    z-index: 9999; /* Fica por cima de tudo para dar a textura unificada */
+}
+
 .swiper {
     width: 100%;
     height: 100vh; /* Isso garante que ocupe a tela toda */
 }
 
-/* Fundo Dinâmico */
+/* Garante que o slide da calculadora centralize tudo verticalmente */
 .swiper-slide {
-    background: radial-gradient(circle at top right, #002d5a, #000);
-    padding: 30px; box-sizing: border-box;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 100%; /* Essencial para o alinhamento */
 }
 
 /* Efeito de Vidro nos Cards */
 .card {
-    background: var(--glass);
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 24px;
-    padding: 25px; width: 100%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    margin-bottom: 20px;
-    transform: translateY(30px); opacity: 0;
-    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    padding: 20px; /* Reduzi de 30px para 20px */
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    margin-bottom: 15px;
+    flex-shrink: 0; /* Impede que o card seja "esmagado" */
 }
 
 /* Animação quando o slide entra na tela */
@@ -100,6 +117,7 @@ h1 span { color: var(--accent); }
 
 /* Estilo do Ícone Principal na Capa */
 .icon-main {
+    align-items: center; justify-content: center;
     font-size: 6rem;
     margin: 30px 0;
     filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.5)); /* Brilho amarelo */
@@ -168,4 +186,190 @@ tbody tr:nth-child(even) {
 /* Destaque ao passar o mouse ou tocar */
 tbody tr:active {
     background: rgba(255, 204, 0, 0.1);
+}
+
+/* Container do Indicador de Deslize */
+.scroll-hint {
+    position: absolute;
+    bottom: 70px; /* Fixa a 30px do fundo do slide */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.8;
+    z-index: 10;
+    pointer-events: none; /* Não atrapalha cliques em botões próximos */
+}
+
+.scroll-hint span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+/* Ícone com animação de pulo */
+.scroll-icon {
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+    color: white;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* Container da Grade de Contatos */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Uma coluna para mobile */;
+    gap: 12px; /* Reduzi o espaço entre eles */
+    width: 80%;
+    padding: 10px;
+}
+
+.contact-card {
+    padding: 15px 10px; /* Mais compacto */
+    border-radius: 10px;
+}
+
+.contact-icon-circle {
+    width: 40px;  /* Reduzi de 50px */
+    height: 40px; /* Reduzi de 50px */
+    font-size: 1.2rem;
+}
+
+.contact-label {
+    font-size: 0.75rem; /* Fonte um pouco menor para não quebrar linha */
+}
+
+/* Container da Calculadora */
+.calc-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 32px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 340px;
+    
+    /* Centralização Absoluta */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    margin: auto; /* Força a centralização no espaço disponível */
+}
+
+/* Input Estilizado - Fundo escuro e bordas neon */
+.calc-input {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(212, 255, 0, 0.2);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 200px; /* Limita a largura para não "esticar" */
+    padding: 15px;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+    outline: none;
+    margin: 20px 0;
+    display: block;
+}
+
+.calc-input:focus {
+    border-color: var(--accent);
+}
+
+/* Área do Resultado */
+.result-display {
+    width: 100%;
+    margin-top: 10px;
+    padding: 20px;
+    background: rgba(212, 255, 0, 0.05);
+    border-radius: 24px;
+    text-align: center;
+}
+
+.result-value {
+    display: block;
+    font-size: 3.0rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.result-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+/* O Card de Contato Premium */
+.contact-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de Clique (Feedback tátil visual) */
+.contact-card:active {
+    transform: scale(0.9);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Ícone do Círculo de Fundo */
+.contact-icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Cores específicas para cada serviço (Dados do Boletim) */
+.bg-agua { background: linear-gradient(135deg, #00c6ff, #0072ff); }
+.bg-limp { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+.bg-zoo { background: linear-gradient(135deg, #f39c12, #d35400); }
+.bg-ordem { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+
+.contact-label {
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.contact-sub {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.6rem;
+    margin-top: 4px;
 }

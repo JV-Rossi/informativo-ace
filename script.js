@@ -27,19 +27,17 @@ function calcularDose() {
     const volumeInput = document.getElementById('volumeInput');
     const doseSpan = document.getElementById('doseResult');
     let volume = parseFloat(volumeInput.value);
-    
-    // 1. Validação do Teto de 1000L
+
+    // 1. Lógica de Teto (Conforme página 10 do Boletim) 
     if (volume > 1000) {
-        alert("Atenção: Volume máximo para esta dosagem é 1000L. Para volumes maiores, consulte a supervisão.");
-        volumeInput.value = 1000; // Trava o input em 1000
+        alert("Atenção: Volume máximo permitido 1000L.");
         volume = 1000;
+        volumeInput.value = 1000;
     }
 
-    // 2. Lógica baseada na tabela técnica da UVZ (Página 10 do PDF)
+    // 2. Cálculo por Degraus (Tabela Técnica UVZ) 
     if (volume > 0) {
         let dose = 0;
-        
-        // Seguindo os degraus exatos do seu boletim:
         if (volume <= 50) dose = 0.5;
         else if (volume <= 100) dose = 1.0;
         else if (volume <= 200) dose = 1.5;
@@ -53,3 +51,31 @@ function calcularDose() {
         doseSpan.innerText = "0";
     }
 }
+
+// 3. Função para baixar o teclado ao apertar "Enter/Enviar"
+document.getElementById('volumeInput').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        this.blur(); // Tira o foco do campo e recolhe o teclado
+        calcularDose(); // Garante o cálculo final
+    }
+});
+
+document.getElementById('volumeInput').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        this.blur();
+        // Força o Swiper a recalcular o tamanho da tela após o teclado sumir
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+            swiper.update();
+        }, 100);
+    }
+});
+
+const swiper = new Swiper('.swiper', {
+    direction: 'vertical',
+    autoHeight: true, // Adicione isto: ajusta a altura conforme o conteúdo
+    slidesPerView: 1,
+    mousewheel: true,
+    parallax: true,
+    speed: 800,
+});
