@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informativo ACE - SE 16</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="swiper">
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide bg-capa">
+                <div class="content">
+                    <span class="badge">SE 16 | 2º CICLO 2026</span>
+                    <h1>REUNIÃO<br><span>SEMANAL</span></h1>
+                    <div class="icon-main">📋</div>
+                    <p>Boletim Epidemiológico e orientações para o campo.</p>
+                </div>
+                <div class="scroll-hint">Deslize para cima ↑</div>
+            </div>
+
+            <div class="swiper-slide">
+                <h2>Casos Notificados</h2>
+                <div class="stat-grid">
+                    <div class="card danger">
+                        <p>Dengue</p>
+                        <div class="number">636</div>
+                        <span class="trend down">↓ 63,5% vs 2025</span>
+                    </div>
+                    <div class="card warning">
+                        <p>Chikungunya</p>
+                        <div class="number">83</div>
+                        <span class="subtext">77 confirmados</span>
+                    </div>
+                    <div class="card info">
+                        <p>Zika</p>
+                        <div class="number">05</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <h2>Batalha contra o mosquito</h2>
+                <div class="chart-container">
+                    <img src="grafico_semanal.png" alt="Gráfico de Casos" class="img-fluid">
+                </div>
+                <p class="chart-note">A média semanal atual (45,4) está bem menor
+                    que a de 2025 (124,4). Ótimo trabalho!</p>
+            </div>
+
+            <div class="swiper-slide">
+                <h2>Cálculo de Larvicida</h2>
+                <div class="calc-box">
+                    <label>Volume do Depósito (Litros):</label>
+                    <input type="number" id="volumeInput" min="0" max="1000" placeholder="Máx 1000L"
+                        oninput="calcularDose()">
+                    <div class="result">
+                        Dose: <span id="doseResult">0</span>g (colheres)
+                    </div>
+                    <small>*Baseado na tabela técnica da UVZ</small>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <h2>Reunião 20/04</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Regional</th>
+                                <th>Horário</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>SUL</strong></td>
+                                <td>08:00 - 09:30</td>
+                            </tr>
+                            <tr>
+                                <td><strong>OESTE</strong></td>
+                                <td>09:30 - 11:00</td>
+                            </tr>
+                            <tr>
+                                <td><strong>LESTE</strong></td>
+                                <td>13:30 - 15:00</td>
+                            </tr>
+                            <tr>
+                                <td><strong>NORTE</strong></td>
+                                <td>15:00 - 16:30</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <h2>Contatos Úteis</h2>
+                <div class="phone-ui">
+                    <a href="tel:08006466115" class="contact-btn"><span>💧 Água Cuiabá</span></a>
+                    <a href="tel:6536455500" class="contact-btn"><span>♻️ Limpurb</span></a>
+                    <a href="tel:6533186059" class="contact-btn"><span>🐾 Zoonoses (CCZ)</span></a>
+                    <a href="tel:6536169614" class="contact-btn"><span>🏗️ Ordem Pública</span></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

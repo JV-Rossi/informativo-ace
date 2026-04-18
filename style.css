@@ -1,0 +1,47 @@
+:root {
+    --primary: #004a8d;
+    --secondary: #ffcc00;
+    --dark: #002344;
+    --white: #ffffff;
+    --danger: #ff4d4d;
+}
+
+body, html { margin: 0; padding: 0; height: 100%; font-family: sans-serif; background: #000; }
+.swiper { width: 100%; height: 100vh; }
+
+.swiper-slide {
+    background: linear-gradient(180deg, var(--dark) 0%, var(--primary) 100%);
+    color: var(--white);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 25px; box-sizing: border-box;
+    position: relative;
+    text-align: center;
+}
+
+/* Centralização do Hint */
+.scroll-hint {
+    position: absolute; bottom: 30px; left: 50%;
+    transform: translateX(-50%); font-size: 0.8rem;
+    opacity: 0.6; animation: bounce 2s infinite;
+}
+
+@keyframes bounce { 0%, 100% { bottom: 30px; } 50% { bottom: 40px; } }
+
+/* Cards */
+.stat-grid { width: 100%; }
+.card { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 12px; margin-bottom: 10px; border-left: 4px solid var(--secondary); }
+.number { font-size: 2.5rem; font-weight: bold; }
+.trend { color: #50fa7b; font-size: 0.9rem; font-weight: bold; }
+
+/* Calculadora */
+.calc-box { background: var(--white); color: var(--dark); padding: 20px; border-radius: 15px; width: 100%; }
+.calc-box input { width: 80%; padding: 10px; margin: 15px 0; border: 1px solid #ccc; border-radius: 8px; font-size: 1.2rem; }
+.result { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
+
+/* Tabela e Botões */
+.table-container { width: 100%; background: rgba(0,0,0,0.3); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; }
+th { background: var(--secondary); color: var(--dark); padding: 10px; }
+td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.contact-btn { background: var(--white); color: var(--dark); padding: 15px; border-radius: 10px; text-decoration: none; display: block; margin-bottom: 10px; font-weight: bold; }
