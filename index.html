@@ -16,59 +16,51 @@
 
             <div class="swiper-slide bg-capa">
                 <div class="content">
-                    <span class="badge">SE 16 | 2º CICLO 2026</span>
-                    <h1>REUNIÃO<br><span>SEMANAL</span></h1>
-                    <div class="icon-main">📋</div>
-                    <p>Boletim Epidemiológico e orientações para o campo.</p>
+                    <span class="badge">Cuiabá - MT | SE 16</span>
+                    <h1>FOCO<br><span>TOTAL</span><br>NO CAMPO</h1>
+                    <div class="icon-main">🦟</div>
+                    <p style="font-size: 0.9rem; max-width: 280px; opacity: 0.8;">
+                        Boletim Epidemiológico e orientações para os Agentes de Endemias.
+                    </p>
                 </div>
                 <div class="scroll-hint">Deslize para cima ↑</div>
             </div>
 
             <div class="swiper-slide">
-                <h2>Casos Notificados</h2>
-                <div class="stat-grid">
-                    <div class="card danger">
-                        <p>Dengue</p>
-                        <div class="number">636</div>
-                        <span class="trend down">↓ 63,5% vs 2025</span>
-                    </div>
-                    <div class="card warning">
-                        <p>Chikungunya</p>
-                        <div class="number">83</div>
-                        <span class="subtext">77 confirmados</span>
-                    </div>
-                    <div class="card info">
-                        <p>Zika</p>
-                        <div class="number">05</div>
-                    </div>
+                <div class="card">
+                    <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.7rem;">Notificações Dengue
+                    </p>
+                    <div class="big-number">636</div>
+                    <div class="drop-badge">▼ 63,5% MENOS CASOS</div>
+                    <p style="font-size: 0.8rem; margin-top: 15px; opacity: 0.7;">
+                        Média semanal caiu de 124,4 para 45,4 este ano. [cite: 91]
+                    </p>
+                </div>
+
+                <div class="card" style="border-left: 4px solid var(--accent);">
+                    <p style="font-size: 0.7rem;">TRABALHO DE CAMPO</p>
+                    <div class="number" style="font-size: 2rem; font-weight: bold;">334.987</div>
+                    <p style="font-size: 0.8rem; opacity: 0.7;">Imóveis vistoriados no ciclo. [cite: 54]</p>
                 </div>
             </div>
 
             <div class="swiper-slide">
-                <h2>Batalha contra o mosquito</h2>
-                <div class="chart-container">
-                    <img src="grafico_semanal.png" alt="Gráfico de Casos" class="img-fluid">
-                </div>
-                <p class="chart-note">A média semanal atual (45,4) está bem menor
-                    que a de 2025 (124,4). Ótimo trabalho!</p>
-            </div>
-
-            <div class="swiper-slide">
-                <h2>Cálculo de Larvicida</h2>
-                <div class="calc-box">
-                    <label>Volume do Depósito (Litros):</label>
-                    <input type="number" id="volumeInput" min="0" max="1000" placeholder="Máx 1000L"
-                        oninput="calcularDose()">
-                    <div class="result">
-                        Dose: <span id="doseResult">0</span>g (colheres)
+                <h2>Dose Exata</h2>
+                <div class="card" style="background: white; color: black;">
+                    <label style="font-weight: bold; font-size: 0.8rem;">VOLUME DO DEPÓSITO (L)</label>
+                    <input type="number" id="volumeInput" placeholder="0"
+                        style="width: 100%; border: none; font-size: 3rem; font-weight: 900; text-align: center; outline: none;">
+                    <div style="height: 2px; background: #eee; margin: 20px 0;"></div>
+                    <div class="result" style="font-size: 1.2rem;">
+                        USAR <span id="doseResult" style="font-size: 2.5rem; color: var(--primary);">0</span> COLHERES
                     </div>
-                    <small>*Baseado na tabela técnica da UVZ</small>
                 </div>
             </div>
-
             <div class="swiper-slide">
-                <h2>Reunião 20/04</h2>
-                <div class="table-container">
+                <h2 style="margin-bottom: 20px;">Reunião Semanal <br><small style="color: var(--accent);">SE 16 | 20 de
+                        Abril</small></h2>
+
+                <div class="table-container card">
                     <table>
                         <thead>
                             <tr>
@@ -79,25 +71,28 @@
                         <tbody>
                             <tr>
                                 <td><strong>SUL</strong></td>
-                                <td>08:00 - 09:30</td>
+                                <td>08:00 às 09:30</td>
                             </tr>
                             <tr>
                                 <td><strong>OESTE</strong></td>
-                                <td>09:30 - 11:00</td>
+                                <td>09:30 às 11:00</td>
                             </tr>
                             <tr>
                                 <td><strong>LESTE</strong></td>
-                                <td>13:30 - 15:00</td>
+                                <td>13:30 às 15:00</td>
                             </tr>
                             <tr>
                                 <td><strong>NORTE</strong></td>
-                                <td>15:00 - 16:30</td>
+                                <td>15:00 às 16:30</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
 
+                <p style="font-size: 0.7rem; margin-top: 15px; opacity: 0.6; padding: 0 20px;">
+                    Pautas: Entrega de serviço (Rotina, PE, Pendências e RG). [cite: 121]
+                </p>
+            </div>
             <div class="swiper-slide">
                 <h2>Contatos Úteis</h2>
                 <div class="phone-ui">
