@@ -1,13 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const swiper = new Swiper('.swiper', {
-        // Direção vertical para parecer "Stories/TikTok"
-        direction: 'vertical',
-        // Permite usar a roda do mouse no PC
-        mousewheel: true,
-        // Efeito de transição suave
-        speed: 600,
-        // Resistência na borda para não "escapar"
-        resistanceRatio: 0.5,
+    const swiper = new Swiper('.swiper', {        
+        direction: 'vertical',                     // Direção vertical para parecer "Stories/TikTok"
+        noSwiping: true,                        // Ativa a verificação de áreas que não deslizam
+        noSwipingClass: 'slider-wrapper',          // O nome da classe que contém seu slider
+        mousewheel: true,                           // Permite usar a roda do mouse no PC       
+        speed: 600,                             // Efeito de transição suave        
+        resistanceRatio: 0.5,                    // Resistência na borda para não "escapar"
         // Feedback visual
         pagination: {
             el: '.swiper-pagination',

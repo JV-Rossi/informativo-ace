@@ -1,7 +1,9 @@
 :root {
     /* Paleta Cuiabá Premium */
-    --primary-green: #004d2c;  /* Verde bandeira escuro */
-    --accent: #d4ff00;         /* Amarelo neon para destaque */
+    --primary-green: #004d2c;
+    /* Verde bandeira escuro */
+    --accent: #d4ff00;
+    /* Amarelo neon para destaque */
     --white: #ffffff;
     --bg-gradient: radial-gradient(circle at top right, #006b3d 0%, #002d1a 100%);
 }
@@ -10,7 +12,8 @@ body {
     margin: 0;
     padding: 0;
     background: var(--bg-gradient);
-    background-attachment: fixed; /* O fundo não se move no deslize, dando profundidade */
+    background-attachment: fixed;
+    /* O fundo não se move no deslize, dando profundidade */
     color: var(--white);
     font-family: 'Inter', sans-serif;
     min-height: 100vh;
@@ -25,14 +28,18 @@ body::before {
     height: 100%;
     /* Gerador de ruído via SVG */
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.05; /* Ajuste aqui: 0.05 é sutil, 0.10 é bem visível */
-    pointer-events: none; /* Garante que você consiga clicar nos botões por baixo dela */
-    z-index: 9999; /* Fica por cima de tudo para dar a textura unificada */
+    opacity: 0.05;
+    /* Ajuste aqui: 0.05 é sutil, 0.10 é bem visível */
+    pointer-events: none;
+    /* Garante que você consiga clicar nos botões por baixo dela */
+    z-index: 9999;
+    /* Fica por cima de tudo para dar a textura unificada */
 }
 
 .swiper {
     width: 100%;
-    height: 100vh; /* Garante que cada slide ocupe a tela inteira */
+    height: 100vh;
+    /* Garante que cada slide ocupe a tela inteira */
     background: transparent;
 }
 
@@ -41,7 +48,8 @@ body::before {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Alinha ao topo para o conteúdo começar lá */
+    justify-content: flex-start;
+    /* Alinha ao topo para o conteúdo começar lá */
     padding: 50px 20px;
     height: 100%;
     box-sizing: border-box;
@@ -49,48 +57,71 @@ body::before {
 
 /* O título fica fixo onde o padding do slide termina */
 .swiper-slide h2 {
-    margin-bottom: 20px; /* Espaço mínimo abaixo do título */
+    margin-bottom: 20px;
+    /* Espaço mínimo abaixo do título */
     flex-shrink: 0;
 }
 
-/* Efeito de Vidro nos Cards */
-.card {
+.swiper-slide::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: var(--accent);
+    filter: blur(150px);
+    opacity: 0.05;
+    /* Brilho amarelo muito sutil */
+    z-index: -1;
+    transform: translate(-50%, -50%);
+}
+
+.card,
+.contact-card {
     background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    /* Branco translúcido */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 24px;
-    padding: 30px;
-    width: 100%;
-    max-width: 360px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    margin-bottom: 15px;
-    flex-shrink: 0; /* Impede que o card seja "esmagado" */
+    /* Borda fina branca */
+    border-radius: 28px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 /* Animação quando o slide entra na tela */
 .swiper-slide-active .card {
-    transform: translateY(0); opacity: 1;
+    transform: translateY(0);
+    opacity: 1;
 }
 
-h1 { font-size: 3rem; font-weight: 900; line-height: 0.9; margin: 0; letter-spacing: -2px; }
-h1 span { color: var(--accent); }
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 0.9;
+    margin: 0;
+    letter-spacing: -2px;
+}
 
-.big-number { 
-    font-size: 4.5rem; 
-    font-weight: 900; 
+h1 span {
+    color: var(--accent);
+}
+
+.big-number {
+    font-size: 4.5rem;
+    font-weight: 900;
     background: linear-gradient(to bottom, #ffffff, #888888);
-    
+
     /* 1. Primeiro o prefixo para Safari/Chrome/iOS */
-    -webkit-background-clip: text; 
-    
+    -webkit-background-clip: text;
+
     /* 2. Depois a propriedade padrão para compatibilidade total */
-    background-clip: text; 
-    
+    background-clip: text;
+
     /* 3. Preenchimento transparente para mostrar o gradiente */
-    -webkit-text-fill-color: transparent; 
-    color: transparent; 
-    
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
     line-height: 1;
     margin: 10px 0;
 }
@@ -99,48 +130,63 @@ h1 span { color: var(--accent); }
 .drop-badge {
     background: rgba(0, 242, 173, 0.2);
     color: var(--success);
-    padding: 6px 12px; border-radius: 50px;
-    font-size: 0.8rem; font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
     border: 1px solid var(--success);
 }
 
 /* Estilo Específico para o Slide de Capa */
 .bg-capa {
-    background-image: 
-        /* Camada escura para dar contraste ao texto */
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 74, 141, 0.8)), 
-        /* Sua nova imagem */
-        url('capa_ace.jpg');
+    background: linear-gradient(180deg, rgba(0, 77, 44, 0.5) 0%, #002d1a 100%),
+        url('sua-imagem-de-fundo.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
 }
 
 /* Tipografia de Impacto na Capa */
 .bg-capa h1 {
-    font-size: 3.5rem; /* Bem grande mesmo */
+    font-size: 3.5rem;
+    /* Bem grande mesmo */
     font-weight: 900;
     line-height: 0.9;
     letter-spacing: -2px;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Sombra para ler bem */
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    /* Sombra para ler bem */
 }
 
 /* Estilo do Ícone Principal na Capa */
 .icon-main {
-    align-items: center; justify-content: center;
+    align-items: center;
+    justify-content: center;
     font-size: 6rem;
     margin: 30px 0;
-    filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.5)); /* Brilho amarelo */
+    filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.5));
+    /* Brilho amarelo */
 }
 
 /* Botões de Contato Estilizados */
-.contact-grid { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.contact-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
 .btn-premium {
     background: var(--glass);
     border: 1px solid var(--glass-border);
-    color: white; padding: 20px; border-radius: 18px;
-    text-decoration: none; font-size: 0.9rem; font-weight: bold;
-    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    color: white;
+    padding: 20px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 /* Container da Tabela com efeito de vidro */
@@ -151,7 +197,8 @@ h1 span { color: var(--accent); }
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px;
-    overflow: hidden; /* Garante que o brilho do header respeite o arredondamento */
+    overflow: hidden;
+    /* Garante que o brilho do header respeite o arredondamento */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -162,8 +209,10 @@ table {
 
 /* Cabeçalho Premium */
 thead th {
-    background: rgba(255, 204, 0, 0.15); /* Amarelo sutil */
-    color: #ffcc00; /* Amarelo alerta do boletim */
+    background: rgba(255, 204, 0, 0.15);
+    /* Amarelo sutil */
+    color: #ffcc00;
+    /* Amarelo alerta do boletim */
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-size: 0.75rem;
@@ -199,7 +248,7 @@ tbody tr:active {
 /* Container do Indicador de Deslize */
 .scroll-hint {
     position: absolute;
-    bottom: 15px; 
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -208,7 +257,8 @@ tbody tr:active {
     gap: 8px;
     opacity: 0.8;
     z-index: 20;
-    pointer-events: none; /* Não atrapalha cliques em botões próximos */
+    pointer-events: none;
+    /* Não atrapalha cliques em botões próximos */
 }
 
 .scroll-hint span {
@@ -227,32 +277,45 @@ tbody tr:active {
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
-    60% {transform: translateY(-5px);}
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
 /* Container da Grade de Contatos */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 12px; /* Reduzi o espaço entre eles */
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    /* Reduzi o espaço entre eles */
     width: 80%;
     padding: 10px;
 }
 
-.contact-card {
-    border-radius: 10px;
-}
-
 .contact-icon-circle {
-    width: 40px;  /* Reduzi de 50px */
-    height: 40px; /* Reduzi de 50px */
+    width: 40px;
+    /* Reduzi de 50px */
+    height: 40px;
+    /* Reduzi de 50px */
     font-size: 1.2rem;
 }
 
 .contact-label {
-    font-size: 1rem; /* Fonte um pouco menor para não quebrar linha */
+    font-size: 1rem;
+    /* Fonte um pouco menor para não quebrar linha */
 }
 
 .slider-container {
@@ -271,24 +334,26 @@ tbody tr:active {
 #volumeSlider {
     -webkit-appearance: none;
     appearance: none;
-    width: 12px; /* Um pouco mais grossa para facilitar a visão */
+    width: 12px;
+    /* Um pouco mais grossa para facilitar a visão */
     height: 260px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     outline: none;
-    writing-mode: bt-lr; 
+    writing-mode: bt-lr;
     -webkit-appearance: slider-vertical;
 }
 
 /* Bolinha maior para o polegar não cobrir a visão do valor */
 #volumeSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 38px; 
+    width: 38px;
     height: 38px;
     background: var(--accent);
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: -5px 0 15px rgba(212, 255, 0, 0.4); /* Sombra para a esquerda */
+    box-shadow: -5px 0 15px rgba(212, 255, 0, 0.4);
+    /* Sombra para a esquerda */
 }
 
 /* O Card de Contato Premium */
@@ -329,10 +394,21 @@ tbody tr:active {
 }
 
 /* Cores específicas para cada serviço (Dados do Boletim) */
-.bg-agua { background: linear-gradient(135deg, #00c6ff, #0072ff); }
-.bg-limp { background: linear-gradient(135deg, #2ecc71, #27ae60); }
-.bg-zoo { background: linear-gradient(135deg, #f39c12, #d35400); }
-.bg-ordem { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+.bg-agua {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.bg-limp {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.bg-zoo {
+    background: linear-gradient(135deg, #f39c12, #d35400);
+}
+
+.bg-ordem {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
 
 .contact-label {
     color: #fff;
