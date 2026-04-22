@@ -8,7 +8,8 @@
     --bg-gradient: radial-gradient(circle at top right, #006b3d 0%, #002d1a 100%);
 }
 
-body {
+body,
+html {
     margin: 0;
     padding: 0;
     background: var(--bg-gradient);
@@ -87,6 +88,35 @@ body::before {
     /* Borda fina branca */
     border-radius: 28px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Container que organiza os blocos de dados */
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Espaçamento fixo entre os cards */
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Deixando o card principal de Dengue mais imponente */
+.card-main {
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 5px solid var(--accent);
+    /* Detalhe em amarelo na borda */
+    padding: 25px 15px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.card-sub {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* Animação quando o slide entra na tela */
@@ -324,36 +354,48 @@ tbody tr:active {
     align-items: center;
 }
 
+/* Container que envolve a barra */
 .slider-wrapper {
     height: 300px;
-    /* Dá uma leve borda ou fundo para o agente saber onde deslizar */
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 30px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    /* Centraliza a barra horizontalmente no wrapper */
+    align-items: center;
+    /* Centraliza verticalmente */
+    background: rgba(255, 255, 255, 0.05);
+    /* Um fundo sutil para guiar o dedo */
+    border-radius: 40px;
+    touch-action: none;
 }
 
 #volumeSlider {
     -webkit-appearance: none;
     appearance: none;
     width: 12px;
-    /* Um pouco mais grossa para facilitar a visão */
-    height: 260px;
+    /* Largura da trilha cinza */
+    height: 250px;
+    /* Altura da trilha */
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     outline: none;
-    writing-mode: bt-lr;
+    cursor: pointer;
+
+    /* Força a orientação vertical corretamente */
     -webkit-appearance: slider-vertical;
+    writing-mode: bt-lr;
 }
 
-/* Bolinha maior para o polegar não cobrir a visão do valor */
+/* Ajuste para o Chrome/Safari Mobile (Bolinha) */
 #volumeSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 38px;
     height: 38px;
     background: var(--accent);
     border-radius: 50%;
-    cursor: pointer;
-    box-shadow: -5px 0 15px rgba(212, 255, 0, 0.4);
-    /* Sombra para a esquerda */
+    box-shadow: 0 0 15px rgba(212, 255, 0, 0.5);
+    /* Remove deslocamentos que podem desalinhá-lo da trilha */
+    margin: 0;
 }
 
 /* O Card de Contato Premium */
