@@ -44,22 +44,37 @@
             </div>
 
             <div class="swiper-slide">
-                <div class="calc-container card">
-                    <label
-                        style="color: var(--accent); letter-spacing: 2px; font-weight: bold; font-size: 0.8rem;">VOLUME
-                        (LITROS)</label>
+                <h2 style="margin-bottom: 20px;">DOSAGEM<br><span style="color: var(--accent);">VISUAL</span></h2>
 
-                    <input type="number" id="volumeInput" class="calc-input" placeholder="0" min="0" max="1000"
-                        oninput="calcularDose()" enterkeyhint="done">
-                    <div class="result-display">
-                        <span id="doseResult" class="result-value">0</span>
-                        <span class="result-label">Gramas / Colheres</span>
+                <div class="calc-card"
+                    style="display: flex; flex-direction: row; align-items: center; gap: 15px; width: 100%;">
+
+                    <div class="display-wrapper"
+                        style="flex: 1; display: flex; flex-direction: column; align-items: center; padding-left: 10px;">
+                        <div id="imgDeposito"
+                            style="font-size: 7rem; margin-bottom: 15px; transition: 0.3s; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));">
+                            🛢️</div>
+
+                        <div class="visual-data" style="text-align: center;">
+                            <span id="txtVolume" style="font-size: 2.2rem; font-weight: 900; color: white;">50L</span>
+                            <div
+                                style="height: 2px; background: var(--accent); margin: 5px 0; border-radius: 5px; width: 80px; margin: 5px auto;">
+                            </div>
+                            <span id="txtDose"
+                                style="font-size: 3.2rem; font-weight: 900; color: var(--accent);">0,5</span>
+                            <p style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px;">
+                                Gramas / Colheres</p>
+                        </div>
                     </div>
 
-                    <p style="font-size: 0.6rem; opacity: 0.4; margin-top: 20px;">
-                        Dose oficial: 0,8g para cada 100L
-                    </p>
+                    <div class="slider-wrapper" style="width: 60px; display: flex; justify-content: center;">
+                        <input type="range" min="1" max="7" value="1" step="1" id="volumeSlider"
+                            oninput="atualizarDoseVisual()">
+                    </div>
+
                 </div>
+
+                <p style="font-size: 0.6rem; opacity: 0.4; margin-top: 25px;">*Arraste a barra amarela para ajustar</p>
             </div>
 
             <div class="swiper-slide">

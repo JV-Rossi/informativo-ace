@@ -1,16 +1,19 @@
 :root {
-    --primary: #0056b3;
-    --accent: #ffcc00;
-    --danger: #ff4d4d;
-    --success: #00f2ad;
-    --glass: rgba(255, 255, 255, 0.08);
-    --glass-border: rgba(255, 255, 255, 0.15);
+    /* Paleta Cuiabá Premium */
+    --primary-green: #004d2c;  /* Verde bandeira escuro */
+    --accent: #d4ff00;         /* Amarelo neon para destaque */
+    --white: #ffffff;
+    --bg-gradient: radial-gradient(circle at top right, #006b3d 0%, #002d1a 100%);
 }
 
-body, html { 
-    margin: 0; padding: 0; height: 100%; 
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: #000; color: white;
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-gradient);
+    background-attachment: fixed; /* O fundo não se move no deslize, dando profundidade */
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
 }
 
 /* Camada de Textura de Ruído */
@@ -30,6 +33,7 @@ body::before {
 .swiper {
     width: 100%;
     height: 100vh; /* Garante que cada slide ocupe a tela inteira */
+    background: transparent;
 }
 
 /*Fixar as posições dos slides (exceto o principal)*/
@@ -38,7 +42,15 @@ body::before {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* Alinha ao topo para o conteúdo começar lá */
-    height: 100%; /* Essencial para o alinhamento */
+    padding: 50px 20px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* O título fica fixo onde o padding do slide termina */
+.swiper-slide h2 {
+    margin-bottom: 20px; /* Espaço mínimo abaixo do título */
+    flex-shrink: 0;
 }
 
 /* Efeito de Vidro nos Cards */
@@ -187,7 +199,7 @@ tbody tr:active {
 /* Container do Indicador de Deslize */
 .scroll-hint {
     position: absolute;
-    bottom: 30px; /* Fixa a 30px do fundo do slide */
+    bottom: 15px; 
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -195,7 +207,7 @@ tbody tr:active {
     align-items: center;
     gap: 8px;
     opacity: 0.8;
-    z-index: 10;
+    z-index: 20;
     pointer-events: none; /* Não atrapalha cliques em botões próximos */
 }
 
@@ -243,72 +255,40 @@ tbody tr:active {
     font-size: 1rem; /* Fonte um pouco menor para não quebrar linha */
 }
 
-/* Container da Calculadora */
-.calc-container {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 32px;
-    padding: 40px 30px;
-    width: 100%;
-    max-width: 340px;
-    
-    /* Centralização Absoluta */
+.slider-container {
+    height: 250px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-    margin: auto; /* Força a centralização no espaço disponível */
 }
 
-/* Input Estilizado - Fundo escuro e bordas neon */
-.calc-input {
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(212, 255, 0, 0.2);
-    border-radius: 20px;
-    width: 100%;
-    max-width: 200px; /* Limita a largura para não "esticar" */
-    padding: 15px;
-    font-size: 3rem;
-    font-weight: 900;
-    color: #fff;
-    text-align: center;
+.slider-wrapper {
+    height: 300px;
+    /* Dá uma leve borda ou fundo para o agente saber onde deslizar */
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 30px;
+}
+
+#volumeSlider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px; /* Um pouco mais grossa para facilitar a visão */
+    height: 260px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
     outline: none;
-    margin: 20px 0;
-    display: block;
+    writing-mode: bt-lr; 
+    -webkit-appearance: slider-vertical;
 }
 
-.calc-input:focus {
-    border-color: var(--accent);
-}
-
-/* Área do Resultado */
-.result-display {
-    width: 100%;
-    margin-top: 10px;
-    padding: 20px;
-    background: rgba(212, 255, 0, 0.05);
-    border-radius: 24px;
-    text-align: center;
-}
-
-.result-value {
-    display: block;
-    font-size: 3.0rem;
-    font-weight: 700;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 10px;
-}
-
-.result-label {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    margin-top: 20px;
+/* Bolinha maior para o polegar não cobrir a visão do valor */
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 38px; 
+    height: 38px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: -5px 0 15px rgba(212, 255, 0, 0.4); /* Sombra para a esquerda */
 }
 
 /* O Card de Contato Premium */
