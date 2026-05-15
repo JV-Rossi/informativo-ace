@@ -1,0 +1,210 @@
+/*---------------------------------------------------------------------
+                                Regras do Body e Estrutura Principal
+-----------------------------------------------------------------------*/
+:root {
+    --verde-cuiaba: #006b3f;
+    --amarelo-cuiaba: #ffcc00;
+    --bg-light: #f4f7f6;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-light);
+    margin: 0;
+    /* Remove as bordas brancas */
+    padding: 0;
+    /* Remove o espaço que afastava a sidebar */
+    overflow: hidden;
+    /* Evita rolagem dupla na tela principal */
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    /* Ocupa a altura total da janela */
+    width: 100vw;
+}
+
+/*---------------------------------------------------------------------
+                                Elementos da tabela e formulários
+-----------------------------------------------------------------------*/
+header h1 {
+    color: var(--verde-cuiaba);
+    border-left: 5px solid var(--amarelo-cuiaba);
+    padding-left: 15px;
+    margin-top: 0;
+}
+
+.form-panel {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+label {
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input,
+textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.main-header th {
+    background: var(--verde-cuiaba);
+    color: white;
+    padding: 12px;
+}
+
+.sub-header th {
+    background: #f1f1f1;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.tabela-dengue {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 13px;
+}
+
+.tabela-dengue td {
+    padding: 12px;
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+.tabela-dengue tr:nth-child(even) {
+    background: #fafafa;
+}
+
+/*---------------------------------------------------------------------
+                                Botões de ação e exportação
+-----------------------------------------------------------------------*/
+.btn-add {
+    background-color: var(--verde-cuiaba);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 10px auto;
+    transition: 0.2s;
+}
+
+.btn-add:hover {
+    background-color: #004d2c;
+    transform: scale(1.01);
+}
+
+.btn-pdf {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    width: 100%;
+    max-width: 250px;
+    margin: 15px 0 0 auto;
+    /* Alinha à direita */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.btn-pdf:hover {
+    background-color: #b71c1c;
+}
+
+/* Botão de Limpar (Cinza Profissional) */
+.btn-limpar {
+    background-color: #6c757d;
+    /* Cinza suave para ações secundárias */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    width: auto;
+    display: inline-block;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-limpar:hover {
+    background-color: #5a6268;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-limpar:active {
+    transform: translateY(1px);
+}
+
+/* 7. ANIMAÇÕES E IMPRESSÃO */
+.view {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media print {
+
+    .sidebar,
+    .btn-add,
+    .btn-pdf,
+    .form-panel {
+        display: none !important;
+    }
+
+    .content {
+        padding: 0;
+        background: white;
+    }
+
+    body {
+        overflow: visible;
+    }
+
+    .tabela-dengue {
+        font-size: 11px;
+    }
+}

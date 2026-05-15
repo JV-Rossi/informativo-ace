@@ -4,188 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informativo ACE - SE 16</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Sistemas UVZ | João Vitor Rossi</title>
+    <!-- Link para o CSS Externo -->
     <link rel="stylesheet" href="style.css">
+    <!-- Fonte Profissional -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <div class="swiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide bg-capa">
-                <div class="content" style="text-align: left;">
-                    <span class="badge">Cuiabá - MT | SE 16</span>
-                    <h1>FOCO <span>TOTAL</span><br>NO CAMPO</h1>
-                    <div class="icon-main" style="text-align: center;">🦟</div>
-                    <p style="font-size: 0.9rem; opacity: 0.8;">
-                        Boletim Epidemiológico e orientações para os Agentes de Endemias.
-                    </p>
-                </div>
-                <div class="scroll-hint">Deslize para cima ↑</div>
+    <header>
+        <h1>Inovação Tecnológica UVZ</h1>
+        <p>Soluções de automação e análise de dados para a Unidade de Vigilância em Zoonoses de Cuiabá.</p>
+    </header>
+
+    <div class="container">
+        <div class="intro-box">
+            <strong>Apresentação Profissional:</strong>
+            Atuo como Agente de Combate a Endemias na <strong>UVZ Cuiabá</strong>, unindo a vivência prática de campo às
+            competências técnicas de TI desenvolvidas no <strong>IFMT</strong>.
+            Meu objetivo é modernizar processos internos através de automação em Python e análise de dados,
+            transformando planilhas complexas em ferramentas visuais que auxiliam biólogos e coordenadoria no controle
+            de zoonoses.
+        </div>
+
+        <div class="grid">
+            <!-- Projeto 1 -->
+            <div class="card">
+                <span class="tag">Logística</span>
+                <h3>Gerador de Mutirão</h3>
+                <p>Otimização de escalas e distribuição de equipes de campo. Redução de erros manuais e ganho de tempo
+                    no planejamento logístico.</p>
+                <a href="gerador-mutirao/index.html" class="btn">Abrir Ferramenta</a>
             </div>
 
-            <div class="swiper-slide">
-                <h2 style="margin-bottom: 10px;">BOLETIM<br><span style="color: var(--accent);">EPIDEMIOLÓGICO</span>
-                </h2>
-
-                <div class="stats-container">
-                    <div class="card-main">
-                        <p style="font-size: 0.7rem; letter-spacing: 2px; opacity: 0.8; margin-bottom: 5px;">
-                            NOTIFICAÇÕES DENGUE</p>
-                        <div style="font-size: 4rem; font-weight: 900; line-height: 1;">636</div>
-                        <div
-                            style="background: #006b3d; color: var(--accent); display: inline-block; padding: 4px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: bold; margin-top: 10px;">
-                            ▼ 63,5% MENOS CASOS
-                        </div>
-                        <p style="font-size: 0.65rem; margin-top: 10px; opacity: 0.6;">Média caiu para 45,4 este ano.
-                        </p>
-                    </div>
-
-                    <div class="card-sub">
-                        <div style="text-align: left;">
-                            <p style="font-size: 0.6rem; opacity: 0.7; text-transform: uppercase;">Trabalho de Campo</p>
-                            <div style="font-size: 1.5rem; font-weight: 900;">334.987</div>
-                        </div>
-                        <div style="font-size: 1.5rem;">🏠</div>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                        <div class="card-sub" style="padding: 10px 15px;">
-                            <span style="font-size: 0.6rem; opacity: 0.7;">CHIKUN.</span>
-                            <span style="font-weight: 900;">83</span>
-                        </div>
-                        <div class="card-sub" style="padding: 10px 15px;">
-                            <span style="font-size: 0.6rem; opacity: 0.7;">ZIKA</span>
-                            <span style="font-weight: 900;">05</span>
-                        </div>
-                    </div>
-                </div>
+            <!-- Projeto 2 -->
+            <div class="card">
+                <span class="tag">Storytelling</span>
+                <h3>Boletim Semanal</h3>
+                <p>Comunicação visual clara dos índices epidemiológicos para supervisores e gestores, utilizando
+                    técnicas de narrativa de dados.</p>
+                <a href="boletim-semanal/index.html" class="btn">Ver Boletim</a>
             </div>
 
-            <div class="swiper-slide">
-                <h2 style="margin-bottom: 10px;">HISTÓRICO <br><span style="color: var(--accent);">COMPARATIVO</span>
-                </h2>
-
-                <div class="card"
-                    style="padding: 10px; height: 320px; display: flex; align-items: center; justify-content: center;">
-                    <iframe src="grafico_dengue.html" style="width: 100%; height: 100%; border: none;"></iframe>
-                </div>
-
-                <p style="font-size: 0.6rem; opacity: 0.5; margin-top: 10px;">
-                    Toque na linha para ver os detalhes de cada semana.
-                </p>
-            </div>
-
-            <div class="swiper-slide">
-                <h2 style="margin-bottom: 20px;">DOSAGEM<br><span style="color: var(--accent);">VISUAL</span></h2>
-
-                <div class="calc-card"
-                    style="display: flex; flex-direction: row; align-items: center; gap: 15px; width: 100%;">
-
-                    <div class="display-wrapper"
-                        style="flex: 1; display: flex; flex-direction: column; align-items: center; padding-left: 10px;">
-                        <div id="imgDeposito"
-                            style="font-size: 7rem; margin-bottom: 15px; transition: 0.3s; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));">
-                            🛢️</div>
-
-                        <div class="visual-data" style="text-align: center;">
-                            <span id="txtVolume" style="font-size: 2.2rem; font-weight: 900; color: white;">50L</span>
-                            <div
-                                style="height: 2px; background: var(--accent); margin: 5px 0; border-radius: 5px; width: 80px; margin: 5px auto;">
-                            </div>
-                            <span id="txtDose"
-                                style="font-size: 3.2rem; font-weight: 900; color: var(--accent);">0,5</span>
-                            <p style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px;">
-                                Gramas / Colheres</p>
-                        </div>
-                    </div>
-
-                    <div class="slider-wrapper" style="width: 60px; display: flex; justify-content: center;">
-                        <input type="range" min="1" max="7" value="1" step="1" id="volumeSlider"
-                            oninput="atualizarDoseVisual()">
-                    </div>
-
-                </div>
-
-                <p style="font-size: 0.6rem; opacity: 0.4; margin-top: 25px;">*Arraste a barra amarela para ajustar</p>
-            </div>
-
-            <div class="swiper-slide">
-                <h2>Reunião Semanal <br><small style="color: var(--accent);">SE 16 | 20 de
-                        Abril</small></h2>
-
-                <div class="table-container card">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Regional</th>
-                                <th>Horário</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>SUL</strong></td>
-                                <td>08:00 às 09:30</td>
-                            </tr>
-                            <tr>
-                                <td><strong>OESTE</strong></td>
-                                <td>09:30 às 11:00</td>
-                            </tr>
-                            <tr>
-                                <td><strong>LESTE</strong></td>
-                                <td>13:30 às 15:00</td>
-                            </tr>
-                            <tr>
-                                <td><strong>NORTE</strong></td>
-                                <td>15:00 às 16:30</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <p style="font-size: 0.7rem; margin-top: 15px; opacity: 0.6; padding: 0 20px;">
-                    Pautas: Entrega de serviço (Rotina, PE, Pendências e RG). [cite: 121]
-                </p>
-            </div>
-            <div class="swiper-slide">
-                <h2 style="margin-bottom: 20px; font-weight: 900; line-height: 1;">LINHAS<br>
-                    <span style="color: var(--accent);">DIRETAS</span>
-                </h2>
-
-                <div class="contact-grid">
-                    <a href="tel:08006466115" class="contact-card">
-                        <div class="contact-icon-circle bg-agua">💧</div>
-                        <span class="contact-label">Água Cuiabá</span>
-                        <span class="contact-sub">Vazamentos</span>
-                    </a>
-
-                    <a href="tel:6536455500" class="contact-card">
-                        <div class="contact-icon-circle bg-limp">♻️</div>
-                        <span class="contact-label">Limpurb</span>
-                        <span class="contact-sub">Entulhos</span>
-                    </a>
-
-                    <a href="tel:6533186059" class="contact-card">
-                        <div class="contact-icon-circle bg-zoo">🐾</div>
-                        <span class="contact-label">Zoonoses</span>
-                        <span class="contact-sub">Animais/Vetor</span>
-                    </a>
-
-                    <a href="tel:6536169614" class="contact-card">
-                        <div class="contact-icon-circle bg-ordem">🏗️</div>
-                        <span class="contact-label">O. Pública</span>
-                        <span class="contact-sub">Terrenos</span>
-                    </a>
-                </div>
-
-                <p style="margin-top: 20px; font-size: 0.6rem; opacity: 0.5;">Toque para ligar agora.</p>
+            <!-- Projeto 3 -->
+            <div class="card">
+                <span class="tag">Power BI</span>
+                <h3>Dashboard de Vigilância</h3>
+                <p>Simulação e análise avançada dos dados de campo dos biólogos da unidade para suporte à tomada de
+                    decisão imediata.</p>
+                <a href="[LINK_DO_SEU_PROJETO_3]" class="btn">Explorar Dashboards</a>
             </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+    <footer>
+        Desenvolvido por João Vitor Rossi Brandão &copy; 2026<br>
+        Foco em Microeletrônica e Análise de Dados
+    </footer>
+
 </body>
 
 </html>

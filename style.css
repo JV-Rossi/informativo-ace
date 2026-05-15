@@ -1,468 +1,130 @@
+/* Variáveis de Cores UVZ/Cuiabá */
 :root {
-    /* Paleta Cuiabá Premium */
-    --primary-green: #004d2c;
-    /* Verde bandeira escuro */
-    --accent: #d4ff00;
-    /* Amarelo neon para destaque */
-    --white: #ffffff;
-    --bg-gradient: radial-gradient(circle at top right, #006b3d 0%, #002d1a 100%);
+    --primary: #005a8d;
+    --primary-dark: #003d60;
+    --secondary: #00a8cc;
+    --bg: #f4f7f9;
+    --card-bg: #ffffff;
+    --text: #2d3436;
+    --text-light: #636e72;
 }
 
-body,
-html {
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
     margin: 0;
     padding: 0;
-    background: var(--bg-gradient);
-    background-attachment: fixed;
-    /* O fundo não se move no deslize, dando profundidade */
-    color: var(--white);
-    font-family: 'Inter', sans-serif;
-    min-height: 100vh;
+    line-height: 1.6;
 }
 
-/* Camada de Textura de Ruído */
-body::before {
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Gerador de ruído via SVG */
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.05;
-    /* Ajuste aqui: 0.05 é sutil, 0.10 é bem visível */
-    pointer-events: none;
-    /* Garante que você consiga clicar nos botões por baixo dela */
-    z-index: 9999;
-    /* Fica por cima de tudo para dar a textura unificada */
-}
-
-.swiper {
-    width: 100%;
-    height: 100vh;
-    /* Garante que cada slide ocupe a tela inteira */
-    background: transparent;
-}
-
-/*Fixar as posições dos slides (exceto o principal)*/
-.swiper-slide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    /* Alinha ao topo para o conteúdo começar lá */
-    padding: 50px 20px;
-    height: 100%;
-    box-sizing: border-box;
-}
-
-/* O título fica fixo onde o padding do slide termina */
-.swiper-slide h2 {
-    margin-bottom: 20px;
-    /* Espaço mínimo abaixo do título */
-    flex-shrink: 0;
-}
-
-.swiper-slide::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: 300px;
-    background: var(--accent);
-    filter: blur(150px);
-    opacity: 0.05;
-    /* Brilho amarelo muito sutil */
-    z-index: -1;
-    transform: translate(-50%, -50%);
-}
-
-.card,
-.contact-card {
-    background: rgba(255, 255, 255, 0.08);
-    /* Branco translúcido */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    /* Borda fina branca */
-    border-radius: 28px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-}
-
-/* Container que organiza os blocos de dados */
-.stats-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    /* Espaçamento fixo entre os cards */
-    width: 100%;
-    margin-top: 10px;
-}
-
-/* Deixando o card principal de Dengue mais imponente */
-.card-main {
-    background: rgba(255, 255, 255, 0.1);
-    border-left: 5px solid var(--accent);
-    /* Detalhe em amarelo na borda */
-    padding: 25px 15px;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.card-sub {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 15px;
-    border-radius: 18px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Animação quando o slide entra na tela */
-.swiper-slide-active .card {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-h1 {
-    font-size: 3rem;
-    font-weight: 900;
-    line-height: 0.9;
-    margin: 0;
-    letter-spacing: -2px;
-}
-
-h1 span {
-    color: var(--accent);
-}
-
-.big-number {
-    font-size: 4.5rem;
-    font-weight: 900;
-    background: linear-gradient(to bottom, #ffffff, #888888);
-
-    /* 1. Primeiro o prefixo para Safari/Chrome/iOS */
-    -webkit-background-clip: text;
-
-    /* 2. Depois a propriedade padrão para compatibilidade total */
-    background-clip: text;
-
-    /* 3. Preenchimento transparente para mostrar o gradiente */
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-
-    line-height: 1;
-    margin: 10px 0;
-}
-
-/* Badge de Queda (Dados SE 16) */
-.drop-badge {
-    background: rgba(0, 242, 173, 0.2);
-    color: var(--success);
-    padding: 6px 12px;
-    border-radius: 50px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    border: 1px solid var(--success);
-}
-
-/* Estilo Específico para o Slide de Capa */
-.bg-capa {
-    background: linear-gradient(180deg, rgba(0, 77, 44, 0.5) 0%, #002d1a 100%),
-        url('sua-imagem-de-fundo.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-/* Tipografia de Impacto na Capa */
-.bg-capa h1 {
-    font-size: 3.5rem;
-    /* Bem grande mesmo */
-    font-weight: 900;
-    line-height: 0.9;
-    letter-spacing: -2px;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    /* Sombra para ler bem */
-}
-
-/* Estilo do Ícone Principal na Capa */
-.icon-main {
-    align-items: center;
-    justify-content: center;
-    font-size: 6rem;
-    margin: 30px 0;
-    filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.5));
-    /* Brilho amarelo */
-}
-
-/* Botões de Contato Estilizados */
-.contact-grid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.btn-premium {
-    background: var(--glass);
-    border: 1px solid var(--glass-border);
+header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: white;
-    padding: 20px;
-    border-radius: 18px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: bold;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-bottom: 5px solid var(--secondary);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 10px auto 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: -40px auto 50px;
+    padding: 0 20px;
+}
+
+.intro-box {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    border-top: 4px solid var(--secondary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+    border: 1px solid #edf2f7;
 }
 
-/* Container da Tabela com efeito de vidro */
-.table-container {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    overflow: hidden;
-    /* Garante que o brilho do header respeite o arredondamento */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-table {
-    width: 100%;
-    font-size: 0.95rem;
-}
-
-/* Cabeçalho Premium */
-thead th {
-    background: rgba(255, 204, 0, 0.15);
-    /* Amarelo sutil */
-    color: #ffcc00;
-    /* Amarelo alerta do boletim */
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+.tag {
+    display: inline-block;
+    background: #e1f5fe;
+    color: var(--primary);
     font-size: 0.75rem;
-    padding: 18px;
-    text-align: left;
-    border-bottom: 2px solid rgba(255, 204, 0, 0.3);
-}
-
-/* Linhas da Tabela */
-tbody td {
-    padding: 16px 18px;
-    color: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* Efeito de destaque na regional */
-tbody td strong {
-    color: #fff;
-    font-weight: 600;
-    display: block;
-}
-
-/* Zebra Striping sutil para leitura rápida no campo */
-tbody tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.02);
-}
-
-/* Destaque ao passar o mouse ou tocar */
-tbody tr:active {
-    background: rgba(255, 204, 0, 0.1);
-}
-
-/* Container do Indicador de Deslize */
-.scroll-hint {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    opacity: 0.8;
-    z-index: 20;
-    pointer-events: none;
-    /* Não atrapalha cliques em botões próximos */
-}
-
-.scroll-hint span {
-    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 50px;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 800;
-    color: var(--accent);
+    margin-bottom: 1rem;
 }
 
-/* Ícone com animação de pulo */
-.scroll-icon {
-    font-size: 1.5rem;
-    animation: bounce 2s infinite;
-    color: white;
+.card h3 {
+    margin: 0 0 1rem;
+    color: var(--primary);
+    font-size: 1.4rem;
 }
 
-@keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateY(0);
-    }
-
-    40% {
-        transform: translateY(-10px);
-    }
-
-    60% {
-        transform: translateY(-5px);
-    }
+.card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
 }
 
-/* Container da Grade de Contatos */
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    /* Reduzi o espaço entre eles */
-    width: 80%;
-    padding: 10px;
-}
-
-.contact-icon-circle {
-    width: 40px;
-    /* Reduzi de 50px */
-    height: 40px;
-    /* Reduzi de 50px */
-    font-size: 1.2rem;
-}
-
-.contact-label {
-    font-size: 1rem;
-    /* Fonte um pouco menor para não quebrar linha */
-}
-
-.slider-container {
-    height: 250px;
-    display: flex;
-    align-items: center;
-}
-
-/* Container que envolve a barra */
-.slider-wrapper {
-    height: 300px;
-    width: 60px;
-    display: flex;
-    justify-content: center;
-    /* Centraliza a barra horizontalmente no wrapper */
-    align-items: center;
-    /* Centraliza verticalmente */
-    background: rgba(255, 255, 255, 0.05);
-    /* Um fundo sutil para guiar o dedo */
-    border-radius: 40px;
-    touch-action: none;
-}
-
-#volumeSlider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 12px;
-    /* Largura da trilha cinza */
-    height: 250px;
-    /* Altura da trilha */
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    outline: none;
-    cursor: pointer;
-
-    /* Força a orientação vertical corretamente */
-    -webkit-appearance: slider-vertical;
-    writing-mode: bt-lr;
-}
-
-/* Ajuste para o Chrome/Safari Mobile (Bolinha) */
-#volumeSlider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 38px;
-    height: 38px;
-    background: var(--accent);
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(212, 255, 0, 0.5);
-    /* Remove deslocamentos que podem desalinhá-lo da trilha */
-    margin: 0;
-}
-
-/* O Card de Contato Premium */
-.contact-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    padding: 20px;
+.btn {
     text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Efeito de Clique (Feedback tátil visual) */
-.contact-card:active {
-    transform: scale(0.9);
-    background: rgba(255, 255, 255, 0.15);
-}
-
-/* Ícone do Círculo de Fundo */
-.contact-icon-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 12px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Cores específicas para cada serviço (Dados do Boletim) */
-.bg-agua {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-}
-
-.bg-limp {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
-}
-
-.bg-zoo {
-    background: linear-gradient(135deg, #f39c12, #d35400);
-}
-
-.bg-ordem {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-}
-
-.contact-label {
-    color: #fff;
-    font-size: 0.8rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    background: var(--primary);
+    color: white;
     text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s;
 }
 
-.contact-sub {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.6rem;
-    margin-top: 4px;
+.btn:hover {
+    background: var(--secondary);
+}
+
+footer {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Ajustes para Celular */
+@media (max-width: 600px) {
+    header h1 { font-size: 1.8rem; }
+    .container { margin-top: -20px; }
 }
