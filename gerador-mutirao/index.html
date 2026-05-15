@@ -15,58 +15,60 @@
     <!------------------------------------------------------------------------
                 Página do distribuidor de trabalho - calculadora de escala inteligente
             -------------------------------------------------------------------------->
-    <section id="page-config" class="view">
-        <header>
-            <h1>Distribuidor de Trabalho</h1>
-            <p>Gere escalas equilibradas agrupando quarteirões inteiros por média de produtividade.</p>
-        </header>
+    <main class="content">
+        <section id="page-config" class="view">
+            <header>
+                <h1>Distribuidor de Trabalho</h1>
+                <p>Gere escalas equilibradas agrupando quarteirões inteiros por média de produtividade.</p>
+            </header>
 
-        <div class="form-panel">
-            <h3>Calculadora de Escala Inteligente</h3>
-            <div class="input-group">
-                <label>Nº de Imóveis por Quarteirão (Separe por vírgula na ordem: Q1, Q2, Q3...)</label>
-                <input type="text" id="listaImoveis" placeholder="Ex: 25, 30, 15, 40, 22, 18, 35">
-            </div>
-            <div class="input-group">
-                <label>Quantidade de Agentes Disponíveis para o Mutirão</label>
-                <input type="number" id="qtdAgentesAuto" placeholder="Ex: 10">
-            </div>
-            <button onclick="gerarEscalaAutomatica()" class="btn-add">
-                Gerar Divisão por Equipes
-            </button>
-        </div>
-
-        <div id="resultadoEscala" class="table-panel" style="display:none;">
-
-            <div class="resumo-calculo"
-                style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid var(--verde-cuiaba); font-size: 14px;">
-                <p style="margin: 5px 0;">📍 <strong>Total de Quarteirões:</strong> <span id="res-total-q">0</span></p>
-                <p style="margin: 5px 0;">🏠 <strong>Total de Imóveis no Bairro:</strong> <span
-                        id="res-total-i">0</span>
-                </p>
-                <p style="margin: 5px 0;">📊 <strong>Meta de Trabalho:</strong> <span id="res-media-ideal"
-                        style="color: var(--verde-cuiaba); font-weight: bold;">0</span> imóveis por agente</p>
+            <div class="form-panel">
+                <h3>Calculadora de Escala Inteligente</h3>
+                <div class="input-group">
+                    <label>Nº de Imóveis por Quarteirão (Separe por vírgula na ordem: Q1, Q2, Q3...)</label>
+                    <input type="text" id="listaImoveis" placeholder="Ex: 25, 30, 15, 40, 22, 18, 35">
+                </div>
+                <div class="input-group">
+                    <label>Quantidade de Agentes Disponíveis para o Mutirão</label>
+                    <input type="number" id="qtdAgentesAuto" placeholder="Ex: 10">
+                </div>
+                <button onclick="gerarEscalaAutomatica()" class="btn-add">
+                    Gerar Divisão por Equipes
+                </button>
             </div>
 
-            <h3>Sugestão de Distribuição por Equipes</h3>
-            <table class="tabela-dengue">
-                <thead>
-                    <tr class="sub-header">
-                        <th>Equipe</th>
-                        <th>Quarteirões</th>
-                        <th>Total Imóveis</th>
-                        <th>Qtd. Agentes</th>
-                        <th>Média Real</th>
-                    </tr>
-                </thead>
-                <tbody id="corpoResultadoAuto">
-                </tbody>
-            </table>
-            <button onclick="limparCalculadora()" class="btn-limpar">
-                🧹 Limpar Simulação
-            </button>
-        </div>
-    </section>
+            <div id="resultadoEscala" class="table-panel" style="display:none;">
+
+                <div class="resumo-calculo"
+                    style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid var(--verde-cuiaba); font-size: 14px;">
+                    <p style="margin: 5px 0;">📍 <strong>Total de Quarteirões:</strong> <span id="res-total-q">0</span>
+                    </p>
+                    <p style="margin: 5px 0;">🏠 <strong>Total de Imóveis no Bairro:</strong> <span
+                            id="res-total-i">0</span>
+                    </p>
+                    <p style="margin: 5px 0;">📊 <strong>Meta de Trabalho:</strong> <span id="res-media-ideal"
+                            style="color: var(--verde-cuiaba); font-weight: bold;">0</span> imóveis por agente</p>
+                </div>
+
+                <h3>Sugestão de Distribuição por Equipes</h3>
+                <table class="tabela-dengue">
+                    <thead>
+                        <tr class="sub-header">
+                            <th>Equipe</th>
+                            <th>Quarteirões</th>
+                            <th>Total Imóveis</th>
+                            <th>Qtd. Agentes</th>
+                            <th>Média Real</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoResultadoAuto">
+                    </tbody>
+                </table>
+                <button onclick="limparCalculadora()" class="btn-limpar">
+                    🧹 Limpar Simulação
+                </button>
+            </div>
+        </section>
     </main>
     </div>
 

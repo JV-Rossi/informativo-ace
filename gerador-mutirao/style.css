@@ -25,6 +25,14 @@ body {
     width: 100vw;
 }
 
+.content {
+    flex: 1;          /* Ocupa o restante da tela */
+    overflow-y: auto; /* Permite rolar apenas o conteúdo das tabelas */
+    padding: 30px;
+    background: var(--bg-light);
+    box-sizing: border-box;
+} 
+
 /*---------------------------------------------------------------------
                                 Elementos da tabela e formulários
 -----------------------------------------------------------------------*/
