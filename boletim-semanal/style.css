@@ -155,11 +155,15 @@ h1 span {
     filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.5));
 }
 
-/* --- SOLUÇÃO DO SCROLL HINT (MUDANÇA DE COMPORTAMENTO) --- */
+/* Container do Indicador de Deslize */
 .scroll-hint {
     position: absolute;
-    bottom: 60px;
-    /* Fixado em relação ao slide pai ativo */
+    /* Mudamos de 20px para uma distância maior que pula a barra do Android */
+    bottom: env(safe-area-inset-bottom, 45px);
+
+    /* Se o navegador não suportar a linha acima, ele usa essa margem segura de 45px: */
+    bottom: 45px !important;
+
     left: 50%;
     transform: translateX(-50%);
     display: flex;
