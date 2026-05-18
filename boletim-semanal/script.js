@@ -1,18 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const swiper = new Swiper('.swiper', {        
-        direction: 'vertical',                     // Direção vertical para parecer "Stories/TikTok"
-        noSwiping: true,                        // Ativa a verificação de áreas que não deslizam
-        noSwipingClass: 'slider-wrapper',          // O nome da classe que contém seu slider
-        mousewheel: true,                           // Permite usar a roda do mouse no PC       
-        speed: 600,                             // Efeito de transição suave        
-        resistanceRatio: 0.5,                    // Resistência na borda para não "escapar"
-        // Feedback visual
+    const swiper = new Swiper('.swiper', {
+        direction: 'vertical',
+        noSwiping: true,
+        noSwipingClass: 'slider-wrapper',
+        mousewheel: {
+            releaseOnEdges: true, // Libera o scroll da página se chegar no topo/final
+        },
+        speed: 400,                           // Reduzido de 600 para 400ms (troca mais rápida e ágil)
+
+        // SENSIVEL AO TOQUE (O segredo para tirar o "peso")
+        touchRatio: 1.5,                      // Aumentado (padrão é 1). Menos esforço físico para arrastar a tela
+        longSwipesRatio: 0.3,                 // Se arrastar só 30% da tela, ele já aceita e passa o slide
+
+        resistanceRatio: 0,                   // Zerado. Tira totalmente a sensação de "mola pesada" no primeiro/último slide
+
         pagination: {
             el: '.swiper-pagination',
             dynamicBullets: true,
         },
     });
-
     // Pequeno feedback tátil (vibration) se for mobile ao trocar de slide
     swiper.on('slideChange', () => {
         if (navigator.vibrate) {
