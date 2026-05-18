@@ -44,13 +44,13 @@ body::before {
     background: transparent;
 }
 
-/*Fixar as posições dos slides (exceto o principal)*/
+/* Fixar as posições dos slides (exceto o principal) */
 .swiper-slide {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    /* Alinha ao topo para o conteúdo começar lá */
+    justify-content: flex-start; /* Mantém o alinhamento ao topo que você definiu */
+    text-align: center;          /* Garante que textos puros fiquem centralizados */
     padding: 50px 20px;
     height: 100%;
     box-sizing: border-box;
@@ -58,8 +58,9 @@ body::before {
 
 /* O título fica fixo onde o padding do slide termina */
 .swiper-slide h2 {
-    margin-bottom: 20px;
-    /* Espaço mínimo abaixo do título */
+    width: 100%;                 /* Ocupa a largura total para o alinhamento funcionar */
+    text-align: center;          /* Força o texto do título a ir para o centro */
+    margin-bottom: 20px;         /* Espaço mínimo abaixo do título */
     flex-shrink: 0;
 }
 
