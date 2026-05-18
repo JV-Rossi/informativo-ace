@@ -44,24 +44,37 @@ body::before {
     background: transparent;
 }
 
-/* Fixar as posições dos slides (exceto o principal) */
+/* Modificação no container base para aceitar a distribuição */
 .swiper-slide {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Mantém o alinhamento ao topo que você definiu */
-    text-align: center;          /* Garante que textos puros fiquem centralizados */
-    padding: 50px 20px;
+    /* Mudamos de flex-start para space-between para segurar o rodapé na tela */
+    justify-content: space-between; 
+    text-align: center;
+    padding: 40px 20px 20px 20px; /* Reduzi um pouco o topo para 40px e garanti 20px na base */
     height: 100%;
     box-sizing: border-box;
 }
 
-/* O título fica fixo onde o padding do slide termina */
+/* Criamos um container para agrupar o bloco do topo (Título + Mosquito + Descrição) */
+/* Caso você prefira resolver direto no CSS sem mexer no HTML, use a regra abaixo: */
 .swiper-slide h2 {
-    width: 100%;                 /* Ocupa a largura total para o alinhamento funcionar */
-    text-align: center;          /* Força o texto do título a ir para o centro */
-    margin-bottom: 20px;         /* Espaço mínimo abaixo do título */
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
     flex-shrink: 0;
+}
+
+/* Garanta que o texto do "deslize para cima" (geralmente um p ou span no final do HTML) */
+/* tenha uma classe específica ou seja a última tag para não sumir */
+.swiper-slide .texto-deslizar, 
+.swiper-slide *:last-child {
+    margin-bottom: 10px; /* Margem de segurança para não cobrir com botões do sistema */
+    font-size: 0.9rem;
+    width: 100%;
+    flex-shrink: 0; /* Impede o navegador de esmagar o texto */
 }
 
 .swiper-slide::after {
