@@ -158,7 +158,7 @@ h1 span {
 /* --- SOLUÇÃO DO SCROLL HINT (MUDANÇA DE COMPORTAMENTO) --- */
 .scroll-hint {
     position: absolute;
-    bottom: 45px;
+    bottom: 60px;
     /* Fixado em relação ao slide pai ativo */
     left: 50%;
     transform: translateX(-50%);
