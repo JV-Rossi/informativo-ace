@@ -159,10 +159,10 @@ h1 span {
 .scroll-hint {
     position: absolute;
     /* Mudamos de 20px para uma distância maior que pula a barra do Android */
-    bottom: env(safe-area-inset-bottom, 45px);
+    bottom: env(safe-area-inset-bottom, 100px);
 
     /* Se o navegador não suportar a linha acima, ele usa essa margem segura de 45px: */
-    bottom: 45px !important;
+    bottom: 100px !important;
 
     left: 50%;
     transform: translateX(-50%);
